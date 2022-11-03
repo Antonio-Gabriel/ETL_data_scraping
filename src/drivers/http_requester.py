@@ -2,8 +2,10 @@
 from typing import Dict
 from requests import get
 
+from .interfaces.http_requester_interface import IHttpRequester
 
-class HttpRequester:
+
+class HttpRequester(IHttpRequester):
     def __init__(self) -> None:
         self.__url = "https://web.archive.org/web/20121007172955/https://nga.gov/collection/anZ1.htm"
 

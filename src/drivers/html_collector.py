@@ -3,8 +3,10 @@
 from typing import List, Dict
 from bs4 import BeautifulSoup
 
+from .interfaces.html_collector_interface import IHtmlCollector
 
-class HtmlCollector:
+
+class HtmlCollector(IHtmlCollector):
 
     @classmethod
     def collector_essential_information(cls, html: str) -> List[Dict[str, str]]:
