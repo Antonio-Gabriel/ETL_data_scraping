@@ -15,11 +15,13 @@ iniconfig==1.1.1
 isort==5.10.1
 lazy-object-proxy==1.8.0
 mccabe==0.7.0
+mysql-connector-python==8.0.31
 nodeenv==1.7.0
 packaging==21.3
 platformdirs==2.5.2
 pluggy==1.0.0
 pre-commit==2.20.0
+protobuf==3.20.1
 pycodestyle==2.9.1
 pylint==2.15.5
 pyparsing==3.0.9
