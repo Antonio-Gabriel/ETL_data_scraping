@@ -1,14 +1,23 @@
 # pylint: disable=too-few-public-methods, unsupported-assignment-operation
 from typing import List, Dict
+from ..contracts.transform_contract import TransformContract
 from ...stages.contracts.extract_contract import ExtractContract
+
+from ...errors.transform_error import TransformError
 
 
 class TransformRawData:
-    def transform(self, extract_contract: ExtractContract):
+    def transform(self, extract_contract: ExtractContract) -> TransformContract:
         """transform extract data step"""
-        transformed_information = self.__filter_and_transform_data(
-            extract_contract)
-        return transformed_information
+        try:
+            transformed_information = self.__filter_and_transform_data(
+                extract_contract)
+            transformed_data_contract = TransformContract(
+                load_content=transformed_information
+            )
+            return transformed_data_contract
+        except Exception as exception:
+            raise TransformError(str(exception.args)) from exception
 
     def __filter_and_transform_data(self, extract_contract: ExtractContract) -> List[Dict]:
         """filter some rules on raw data and transform"""
