@@ -49,6 +49,10 @@ class DatabaseConnector:
 if not after run run `db.sql` file you only need to run the command bellow:
 
 ```bash
+python3 -m venv venv
+. venv/bin/activate # ubuntu
+. venv/scripts/activate # windows
+pip3 install -r requirements.txt
 python3 run.py
 
 # output
