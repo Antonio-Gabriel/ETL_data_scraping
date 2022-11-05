@@ -1,11 +1,13 @@
 # pylint: disable=too-few-public-methods
 from typing import Dict
 from .database_connector import DatabaseConnector
+from ..infra.interfaces.database_repository_interface import (
+    IDatabaseRepository
+)
 
 
-class DatabaseRepository:
-    @classmethod
-    def insert_artist_from_db(cls, data: Dict) -> None:
+class DatabaseRepository(IDatabaseRepository):
+    def insert_artist_from_db(self, data: Dict) -> None:
         """persists data from db"""
         query = '''
             INSERT INTO artists
